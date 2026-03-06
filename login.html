@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login In GitHub Issues Tracker</title>
-
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"> 
     <!-- Style Css -->
     <link rel="stylesheet" href="style.css">
+    <!-- Tailwindcss daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
-<body class="geist">
-    <div>
 
-        <H1>GitHub Issues Tracker</H1>
-        <p>Sign in to continue</p>
-
-        <input type="text" placeholder="User name">
-        <input type="password" placeholder="password">
-
-        <button>Sign In</button>
-
-        <p>demo : admin / admin123</p>
-
-    </div>
+<body class="geist bg-gray-100">
+    <section class="flex justify-center items-center min-h-screen px-4">
+        <div class="fieldset flex flex-col items-center  border-base-300 rounded-2xl border p-10 shadow-2xl">
+            <div><img class="w-24 h-24" src="./assets/github-logo.png" alt="github-logo"></div>
+            <br>
+            <H1 class="font-extrabold text-4xl text-[#1F2937]">GitHub Issues Tracker</H1>
+            <p class="font-normal text-xl text-[#64748B]">Sign in to manage your issues</p>
+            <br>
+            <div class="w-11/12">
+                <h2 class="flex text-start font-semibold text-[18px] text-gray-950">Username</h2>
+                <input class="w-full font-normal text-sm text-gray-950 p-2 border-base-300 rounded-xl border " type="text" placeholder="Enter Username">
+            </div>
+            <div class="w-11/12">
+                <h2 class="flex text-start font-semibold text-[18px] text-gray-950">Password</h2>
+                <input class="w-11/12  font-normal text-sm text-gray-950 p-2 border-base-300 rounded-xl border" type="password" placeholder="Enter Password">
+            </div>
+            <br>
+            <button class="w-11/12 btn btn-primary mt-4">Sign In</button>
+            <br>
+            <div class="divider">OR</div>
+            <br>
+            <p class="font-light text-sm text-[#64748B] pb-4">Demo Credentials:</p>
+            <div class="flex flex-col text-[16px]">
+                <p><span class="font-semibold">Username</span>: admin</p>
+                <p><span class="font-semibold">Password</span>: admin123</p>
+            </div>
+        </div>
+    </section>
 
     <!-- script js -->
-     <style src="login.js"></style>
+    <style src="login.js"></style>
 </body>
 </html>
