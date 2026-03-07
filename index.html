@@ -22,8 +22,8 @@
     
  </head>
  <body class="geist bg-gray-100">
-
-    <nav class="navbar px-20 flex justify-between items-center bg-white shadow-xl">
+    <!-- Navbar -->
+     <nav class="navbar px-20 flex justify-between items-center bg-white shadow-xl">
         <div class="flex ">
             <div class="pr-2"><img class="w-9 h-9" src="./assets/github-logo.png" alt="github-logo"></div>
             <h2 class="font-semibold text-2xl text-[#1F2937]">GitHub Issues Tracker</h2>
@@ -31,27 +31,26 @@
 
         <div class="flex ">
             <div class="relative w-11/12 pr-4">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                <input id="searchInput"
-                    class="w-full font-normal text-sm text-gray-950 py-2 pl-10 pr-4 border-base-300 rounded-sm border"
-                    placeholder="Search issue..."
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input id="searchInput"
+                class="w-full font-normal text-sm text-gray-950 py-2 pl-10 pr-4 border-base-300 rounded-sm border"
+                placeholder="Search issue..."
                 >
             </div>
-            <button class="btn btn-primary">
+
+            <button onclick="searchIssue()" class="btn btn-primary">
             <i class="fa-solid fa-plus"></i>Search
             </button>
         </div>
     </nav>
-
     <!-- issue btn bar-->
         <div class="px-64 py-14">
             <div class="bg-white p-5 rounded-xl shadow flex gap-3 w-full mb-6">
-            <button class="tab-btn btn btn-sm btn-primary">All</button>
-            <button class="tab-btn btn btn-sm text-gray-400">Open</button>
-            <button class="tab-btn btn btn-sm text-gray-400">Closed</button>
+            <button onclick="filterAll(this)" class="tab-btn btn btn-sm btn-primary">All</button>
+            <button onclick="filterOpen(this)" class="tab-btn btn btn-sm text-gray-400">Open</button>
+            <button onclick="filterClosed(this)" class="tab-btn btn btn-sm text-gray-400">Closed</button>
             </div>
         </div>
-
     <!-- 50 Issues bar -->
     <div class="px-64 mt-6">
         <div class="bg-white p-5 rounded-xl shadow flex justify-between items-center">
@@ -66,18 +65,17 @@
             </div>
 
             <div class="flex gap-5 text-sm">
-                <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <div onclick="filterOpen()" class=" flex items-center gap-2 cursor-pointer">
+                    <div  class="w-3 h-3 bg-green-500 rounded-full"></div>
                     Open
                 </div>
-                <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                <div onclick="filterClosed()" class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-purple-500 rounded-full cursor-pointer"></div>
                     Closed
                 </div>
             </div>
         </div>
     </div>
-
     <!-- issuesContainer -->
     <div id="issuesContainer" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-6 px-64"></div>
     <!-- lodding area -->
