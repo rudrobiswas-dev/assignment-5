@@ -22,11 +22,10 @@ function displayIssues(issues){
         div.style.borderTop = "4px solid purple"
     }else{
         div.style.borderTop = "4px solid green"
-    }
-    
+    } 
 div.innerHTML = `
                     <div class="flex justify-end mb-5 pb-3">
-                        <span class="text-sm bg-gray-300 px-4 py-1 rounded-full cursor-pointer">${issue.priority}</span>
+                        <span class="text-sm bg-gray-300 px-4 py-1 rounded-full cursor-pointer" onclick="getIssue(${issue.id})">${issue.priority}</span>
                     </div>
                     <h3 class="font-semibold text-lg cursor-pointer"
                         onclick="getIssue(${issue.id})">
@@ -52,7 +51,6 @@ container.appendChild(div)
 })
 
 }
-
 // Filter Search text
 async function searchIssue(){
 const text = document.getElementById("searchInput").value
@@ -62,7 +60,6 @@ const res = await fetch(
 const data = await res.json()
 displayIssues(data.data)
 }
-
 // Filter all || open || close || Active button
 // Active button function
 function setActive(btn){
@@ -112,4 +109,9 @@ async function getIssue(id){
     document.getElementById("modalPriority").innerText = issue.priority
     document.getElementById("issueModal").classList.remove("hidden")
     document.getElementById("issueModal").classList.add("flex")
+}
+//Issue info Close btn responsive
+function closeModal(){
+    document.getElementById("issueModal").classList.add("hidden")
+    document.getElementById("issueModal").classList.remove("flex")
 }
