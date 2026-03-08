@@ -40,7 +40,7 @@ div.innerHTML = `
                         ).join("") : ""}
                     </div>
                     <div class="pt-4 text-sm text-gray-500">
-                        #1 by ${issue.author}
+                         #${issue.id} by ${issue.author}
                     <br>
                     ${issue.createdAt}
                     </div>
@@ -103,7 +103,7 @@ async function getIssue(id){
     document.getElementById("modalStatus").innerText = issue.status
     document.getElementById("modalAuthor").innerText = "Opened by " + issue.author
     document.getElementById("modalDate").innerText = issue.createdAt
-    document.getElementById("modalLabel").innerText = issue.labels
+    document.getElementById("modalLabel").innerText = issue.labels.join(", ")
     document.getElementById("modalDescription").innerText = issue.description
     document.getElementById("modalAssignee").innerText = issue.author
     document.getElementById("modalPriority").innerText = issue.priority
