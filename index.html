@@ -47,8 +47,8 @@
         <div class="px-64 py-14">
             <div class="bg-white p-5 rounded-xl shadow flex gap-3 w-full mb-6">
             <button onclick="filterAll(this)" class="tab-btn btn btn-sm btn-primary">All</button>
-            <button onclick="filterOpen(this)" class="tab-btn btn btn-sm text-gray-400">Open</button>
-            <button onclick="filterClosed(this)" class="tab-btn btn btn-sm text-gray-400">Closed</button>
+            <button onclick="filterOpen(this)" class="tab-btn btn btn-sm">Open</button>
+            <button onclick="filterClosed(this)" class="tab-btn btn btn-sm">Closed</button>
             </div>
         </div>
     <!-- 50 Issues bar -->
@@ -65,11 +65,11 @@
             </div>
 
             <div class="flex gap-5 text-sm">
-                <div onclick="filterOpen()" class=" flex items-center gap-2 cursor-pointer">
+                <div  class=" flex items-center gap-2 cursor-pointer">
                     <div  class="w-3 h-3 bg-green-500 rounded-full"></div>
                     Open
                 </div>
-                <div onclick="filterClosed()" class="flex items-center gap-2">
+                <div  class="flex items-center gap-2">
                     <div class="w-3 h-3 bg-purple-500 rounded-full cursor-pointer"></div>
                     Closed
                 </div>
@@ -78,9 +78,37 @@
     </div>
     <!-- issuesContainer -->
     <div id="issuesContainer" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-6 px-64"></div>
-    <!-- lodding area -->
+    <!-- loading area -->
     <div id="loading" class="text-center pb-96 hidden">
     <span class="loading loading-bars loading-xl"></span>
+    </div>
+    <!-- Issue info pop up -->
+    <div id="issueModal" class="fixed inset-0 bg-black/50 hidden justify-center items-center z-50">
+        <div class="bg-white rounded-md shadow-xl w-[500px] p-6">
+            <h2 id="modalTitle" class="text-3xl font-bold pb-2"></h2>
+            <div class="flex gap-3 items-center text-sm pb-3">
+                <span id="modalStatus" class="px-3 py-1 rounded-full text-green-100 bg-green-700"></span>
+                <i class="fa-solid fa-circle" style="font-size: 5px"></i><span id="modalAuthor" class="text-gray-500"></span>
+                <i class="fa-solid fa-circle" style="font-size: 5px"></i><span id="modalDate" class="text-gray-500"></span>
+            </div>
+            <div class="flex pb-4 gap-3">
+                <span id="modalLabel" class="bg-yellow-300 text-yellow-700 px-3 py-1 rounded-full text-xs"></span>
+            </div>
+            <p id="modalDescription" class="text-gray-600 pb-4"></p>
+            <div class="bg-gray-100 p-4 rounded flex justify-between mb-4">
+                <div>
+                    <p class="text-sm text-gray-600">Assignee:</p>
+                    <p id="modalAssignee" class="font-semibold"></p>
+                </div>
+                <div class="items-center">
+                    <p class="text-sm text-gray-600">Priority:</p>
+                    <span id="modalPriority" class="bg-red-500 text-white px-4 py-1 rounded-full text-xs"></span>
+                </div>
+            </div>
+            <div class="flex justify-end pt-3">
+                <button onclick="closeModal()" class="btn btn-primary">Close</button>
+            </div>
+        </div>
     </div>
     <!-- script area -->
     <script src="script.js"></script>

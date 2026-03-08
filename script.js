@@ -95,3 +95,21 @@ async function filterClosed(btn){
     const closed = data.data.filter(issue => issue.status === "closed")
 displayIssues(closed)
 }
+// Issue info pop up
+async function getIssue(id){
+    const res = await fetch(
+        `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+    )
+    const data = await res.json()
+    const issue = data.data
+    document.getElementById("modalTitle").innerText = issue.title
+    document.getElementById("modalStatus").innerText = issue.status
+    document.getElementById("modalAuthor").innerText = "Opened by " + issue.author
+    document.getElementById("modalDate").innerText = issue.createdAt
+    document.getElementById("modalLabel").innerText = issue.labels
+    document.getElementById("modalDescription").innerText = issue.description
+    document.getElementById("modalAssignee").innerText = issue.author
+    document.getElementById("modalPriority").innerText = issue.priority
+    document.getElementById("issueModal").classList.remove("hidden")
+    document.getElementById("issueModal").classList.add("flex")
+}
